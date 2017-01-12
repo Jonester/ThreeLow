@@ -10,7 +10,6 @@
 
 @interface Dice : NSObject
 
-@property (nonatomic) NSInteger currentValue;
-@property (nonatomic) NSString *face;
+@property (nonatomic) NSDictionary *dieFaces;
 
 @end

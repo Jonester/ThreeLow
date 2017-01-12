@@ -12,11 +12,10 @@
 @interface GameManager : NSObject
 
 @property (nonatomic) NSArray <Dice*> *diceArray;
-@property (nonatomic) NSDictionary *dieFaceMapper;
 @property (nonatomic) NSMutableSet *heldDiceSet;
-@property (nonatomic) NSString *dieFace;
-@property (nonatomic) Dice *die;
+@property (nonatomic) NSString *dieFace; //make this equal to the value of each dictionary key
+@property (nonatomic) NSInteger dieValue;
 
-- (NSString *)diceRoll;
+- (void)diceRoll: (Dice *)dice;
 
 @end

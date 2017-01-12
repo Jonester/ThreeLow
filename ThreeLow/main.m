@@ -30,12 +30,12 @@ int main(int argc, const char * argv[]) {
         while (gameOn) {
             NSString *userInput= [InputCollector collectInfo];
             if ([userInput isEqualToString:@"r"] || [userInput isEqualToString:@"roll"]) {
-                
-                [gameManager diceRoll];
-                
-                
+                for (NSInteger i = 0; i <= 4; i++) {
+                    [gameManager diceRoll:gameManager.diceArray[i]];
+                NSLog(@"%@", gameManager.dieFace);
             }
         }
     }
+}
     return 0;
 }

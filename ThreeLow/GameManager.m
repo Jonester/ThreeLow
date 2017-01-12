@@ -16,7 +16,8 @@
     self = [super init];
     if (self) {
         _diceArray = [NSArray new];
-        _dieFaceMapper = @{@1:@"⚀", @2:@"⚁", @3:@"⚂", @4:@"⚃", @5:@"⚄", @6:@"⚅"};
+        _dieValue = arc4random_uniform(5) + 1;
+        _dieFace = [NSString new];
     }
     return self;
 }
@@ -27,10 +28,9 @@
     
 }
 
-- (NSString *)diceRoll {
-    
-     return self.dieFaceMapper[@(self.die.currentValue)];
-    
+- (void)diceRoll: (Dice *)dice {
+    self.dieValue = arc4random_uniform(5) + 1;
+    self.dieFace = dice.dieFaces[@(self.dieValue)];
 }
 
 

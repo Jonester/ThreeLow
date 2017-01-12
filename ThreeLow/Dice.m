@@ -15,8 +15,7 @@
 {
     self = [super init];
     if (self) {
-        _currentValue = arc4random_uniform(5) + 1;
-        _face = [NSString new];
+        _dieFaces = @{@1:@"⚀", @2:@"⚁", @3:@"⚂", @4:@"⚃", @5:@"⚄", @6:@"⚅"};
     }
     return self;
 }
