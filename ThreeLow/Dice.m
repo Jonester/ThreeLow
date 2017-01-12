@@ -15,19 +15,11 @@
 {
     self = [super init];
     if (self) {
-        
-        [self diceRoll];
+        _currentValue = arc4random_uniform(5) + 1;
+        _face = [NSString new];
     }
     return self;
 }
 
-- (NSInteger)diceRoll {
-    
-    GameManager *gameManager = [GameManager new];
-    
-    self.currentValue = arc4random_uniform(5) + 1;
-    self.face = gameManager.dieFaceValues[@(self.currentValue)];
-    return self.currentValue;
-}
 
 @end

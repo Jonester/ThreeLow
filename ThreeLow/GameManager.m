@@ -7,6 +7,7 @@
 //
 
 #import "GameManager.h"
+#import "Dice.h"
 
 @implementation GameManager
 
@@ -15,7 +16,7 @@
     self = [super init];
     if (self) {
         _diceArray = [NSArray new];
-        _dieFaceValues = @{@1:@"⚀", @2:@"⚁", @3:@"⚂", @4:@"⚃", @5:@"⚄", @6:@"⚅"};
+        _dieFaceMapper = @{@1:@"⚀", @2:@"⚁", @3:@"⚂", @4:@"⚃", @5:@"⚄", @6:@"⚅"};
     }
     return self;
 }
@@ -25,5 +26,12 @@
 -(void)holdDie {
     
 }
+
+- (NSString *)diceRoll {
+    
+     return self.dieFaceMapper[@(self.die.currentValue)];
+    
+}
+
 
 @end

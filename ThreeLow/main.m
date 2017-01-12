@@ -25,15 +25,17 @@ int main(int argc, const char * argv[]) {
         }
         gameManager.diceArray = [NSArray arrayWithArray:tempArray];
         
-        NSLog(@"Welcome to ThreeLow. \nEnter the word 'roll' or 'r' to roll the dice.");
-        [InputCollector collectInfo];
-        
+        NSLog(@"Welcome to ThreeLow. \nEnter the word 'roll' or 'r' to roll the dice, or 'quit' to quit.");
+       
         while (gameOn) {
-            
-            
+            NSString *userInput= [InputCollector collectInfo];
+            if ([userInput isEqualToString:@"r"] || [userInput isEqualToString:@"roll"]) {
+                
+                [gameManager diceRoll];
+                
+                
+            }
         }
-        
-        
     }
     return 0;
 }
