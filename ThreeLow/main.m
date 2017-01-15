@@ -28,14 +28,29 @@ int main(int argc, const char * argv[]) {
         NSLog(@"Welcome to ThreeLow. \nEnter the word 'roll' or 'r' to roll the dice, or 'quit' to quit.");
        
         while (gameOn) {
-            NSString *userInput= [InputCollector collectInfo];
-            if ([userInput isEqualToString:@"r"] || [userInput isEqualToString:@"roll"]) {
+            NSString *input = [InputCollector collectInfo];
+            if ([input isEqualToString:@"r"] || [input isEqualToString:@"roll"]) {
                 for (NSInteger i = 0; i <= 4; i++) {
                     [gameManager diceRoll:gameManager.diceArray[i]];
-                NSLog(@"%@", gameManager.dieFace);
+                    NSLog(@"Dice # %ld: %@", i + 1, gameManager.dieFace);
+                }
+                NSLog(@"\n\nPlease enter the dice numbers that you would like to hold separated by a space.");
+                NSString *holdDice = [InputCollector collectInfo];
+                NSArray *parsedInput = [holdDice componentsSeparatedByString:@" "];
+                for (int i = 0; i <= parsedInput.count; i++) {
+                    if ([[parsedInput objectAtIndex:i] isEqual:[gameManager.diceArray objectAtIndex:i]]) {
+                        
+                    }
+                }
             }
+        else if ([input isEqualToString:@"q"] || [input isEqualToString:@"quit"]) {
+            gameOn = NO;
+            NSLog(@"Thanks for playing.");
+        } else {
+            NSLog(@"That is an ivalid entry, please try again.");
+            continue;
         }
     }
 }
-    return 0;
+return 0;
 }

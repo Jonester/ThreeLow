@@ -28,9 +28,12 @@
     
 }
 
-- (void)diceRoll: (Dice *)dice {
-    self.dieValue = arc4random_uniform(5) + 1;
-    self.dieFace = dice.dieFaces[@(self.dieValue)];
+- (NSString *)diceRoll: (Dice *)dice {
+    
+    self.dieValue = [[dice.dieFaces objectForKey:@(self.dieValue)] integerValue];
+    self.dieFace = [dice.dieFaces valueForKey:@(self.dieValue).stringValue];
+//    self.dieValue = arc4random_uniform(5) + 1;
+//    self.dieFace = dice.dieFaces[@(self.dieValue)];
 }
 
 
